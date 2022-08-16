@@ -1,2 +1,7 @@
 <!--pages/main-music/main-music.wxml-->
-<text>pages/main-music/main-music.wxml</text>
+<van-search
+  shape="round"
+  background="#f7f7f7"
+  placeholder="搜索你喜欢的歌曲"
+  bind:focus="handleSearchFocus"
+/>
