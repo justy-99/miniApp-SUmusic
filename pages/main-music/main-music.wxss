@@ -1,4 +1,9 @@
 /* pages/main-music/main-music.wxss */
-.van-search__content {
-  background-color: #fff !important;
+page {
+  --search-background-color: #fff;
+  --search-padding: 10px 0;
+
+  box-sizing: border-box;
+  padding: 0 24rpx;
+  background-color: #fafafa;
 }

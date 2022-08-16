@@ -1,7 +1,7 @@
 <!--pages/main-music/main-music.wxml-->
 <van-search
   shape="round"
-  background="#f7f7f7"
-  placeholder="搜索你喜欢的歌曲"
-  bind:focus="handleSearchFocus"
+  background="#fafafa"
+  placeholder="搜索您喜欢的歌曲"
+  bind:click-input="onSearchClick"
 />

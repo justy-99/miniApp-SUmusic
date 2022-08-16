@@ -1,2 +1,7 @@
 <!--pages/detail-search/detail-search.wxml-->
-<text>pages/detail-search/detail-search.wxml</text>
+<van-search
+  shape="round"
+  background="#fafafa"
+  placeholder="搜索您喜欢的歌曲"
+  bind:click-input="onSearchClick"
+/>

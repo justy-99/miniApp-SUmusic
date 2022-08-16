@@ -11,13 +11,13 @@
 />
 
 <scroll-view class="content" scroll-y>
-  <view class="info">
+  <view class="info section">
     <view class="name">{{ mvInfo.artistName }} - {{ mvInfo.name }}</view>
     <view class="time">{{ fmt.formatCount(mvInfo.playCount) }}次播放 · {{ mvInfo.publishTime}}</view>
   </view>
 
-  <view class="recommend">推荐视频：</view>
-  <view class="related-video">
+  <view class="recommend section">推荐视频：</view>
+  <view class="related-video section">
     <block wx:for="{{relatedVideo}}" wx:key="vid">
       <view class="item">
         <view class="imgBox">
