@@ -1,2 +1,25 @@
 <!--pages/detail-video/detail-video.wxml-->
-<text>pages/detail-video/detail-video.wxml</text>
+<!-- 1.video组件播放视频 -->
+<video 
+  class="video" 
+  src="{{mvUrl}}" 
+  autoplay
+  danmu-list="{{danmuList}}"
+  referrer-policy="origin"
+/>
+
+<scroll-view class="content" scroll-y>
+  <view class="info">
+    <view class="name">{{ mvInfo.name }} - {{ mvInfo.artistName }}</view>
+    <view class="time">{{ mvInfo.publishTime}}</view>
+  </view>
+
+  <view class="related-video">
+    <block wx:for="{{relatedVideo}}" wx:key="vid">
+      <view class="item">
+        <image class="img" src="{{item.coverUrl}}" mode="widthFix"></image>
+        <view class="title">{{item.title}}</view>
+      </view>
+    </block>
+  </view>
+</scroll-view>

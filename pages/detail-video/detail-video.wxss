@@ -1,1 +1,56 @@
 /* pages/detail-video/detail-video.wxss */
+page {
+  height: 100vh;
+}
+
+.video {
+  width: 100%;
+  /* position: fixed;
+  top: 0;
+  left: 0; */
+}
+
+.content {
+  height: calc(100% - 225px);
+}
+
+.info {
+  font-size: 32rpx;
+  padding: 10rpx 30rpx;
+}
+
+.info .name {
+  /* 显示两行 */
+  display: -webkit-box; 
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; 
+}
+
+.info .time {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.related-video { 
+  padding: 10rpx 30rpx 20rpx;
+}
+
+.related-video .item {
+  margin: 30rpx 0;
+}
+
+.related-video .item .img{
+  border-radius: 16rpx;
+  width: 100%;
+}
+
+.related-video .item .title {
+  /* 显示一行 */
+  display: -webkit-box; 
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical; 
+}
