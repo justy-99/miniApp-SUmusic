@@ -5,10 +5,12 @@ Page({
   data: {
     videoList: [],
     offset: 0,
-    hasMore: true
+    hasMore: true,
+    loading: true,
   },
 
   onLoad() {
+    this.setData({loading:true})
     // 发送网络请求
     this.fetchTopMV()
   },
@@ -20,6 +22,7 @@ Page({
     // })
     // 1.获取数据
     const res = await getTopMV(this.data.offset)
+    this.setData({loading:false})
 
     // 2.将新的数据追加到原来数据的后面
     const newVideoList = [...this.data.videoList, ...res.data]
@@ -40,6 +43,7 @@ Page({
   async onPullDownRefresh() {
     // 1.清空之前的数据
     this.setData({ videoList: [] })
+    this.setData({loading:true})
     this.data.offset = 0
     this.data.hasMore = true
 

@@ -1,9 +1,10 @@
 /* pages/main-video/main-video.wxss */
+@import "./main-video.skeleton.wxss";
 .video-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 0 10rpx;
+  padding: 4rpx 10rpx;
 }
 
 .video-list .item {

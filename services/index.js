@@ -18,14 +18,20 @@ class SZYRequest {
   }
   request(options) {
     const { url } = options
+    wx.showLoading({
+      title: '拼命加载中~',
+      mask: true
+    })
     return new Promise((resolve, reject) => {
       wx.request({
         ...options,
         url: this.baseURL + url,
         success: (res) => {
+          wx.hideLoading()
           resolve(res.data)
         },
         fail: (err) => {
+          wx.hideLoading()
           console.log("err:", err);
         }
       })

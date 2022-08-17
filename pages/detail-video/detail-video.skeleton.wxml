@@ -1,0 +1,88 @@
+<!--
+此文件为开发者工具生成，生成时间: 2022/8/17下午6:40:38
+使用方法：
+在 D:\my-project\miniApp\SU-Music\pages\detail-video\detail-video.wxml 引入模板
+
+```
+<import src="detail-video.skeleton.wxml"/>
+<template is="skeleton" wx:if="{{loading}}" />
+```
+
+在 D:\my-project\miniApp\SU-Music\pages\detail-video\detail-video.wxss 中引入样式
+```
+@import "./detail-video.skeleton.wxss";
+```
+
+更多详细信息可以参考文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/skeleton.html
+-->
+<template name="skeleton">
+  <view class="sk-container">
+    <view>
+      <view autoplay="true" class="video sk-transparent sk-text--Infinity-892 sk-text sk-image" danmu-list="[{&quot;text&quot;:&quot;哈哈哈, 真好听&quot;,&quot;color&quot;:&quot;#ff0000&quot;,&quot;time&quot;:3},{&quot;text&quot;:&quot;呵呵呵, 不错哦&quot;,&quot;color&quot;:&quot;#ffff00&quot;,&quot;time&quot;:10},{&quot;text&quot;:&quot;嘿嘿嘿, 好喜欢&quot;,&quot;color&quot;:&quot;#0000ff&quot;,&quot;time&quot;:15}]"
+        referrer-policy="origin" src="http://vodkgeyttp8.vod.126.net/cloudmusic/obj/core/16114710363/5957859b51506a0c9a660f750288f305.mp4?wsSecret=da0e1dacd041da0981c67158620e8100&amp;wsTime=1660732747" unit-id="true">00:0501:53哈哈哈, 真好听</view>
+    </view>
+    <scroll-view scroll-y="true" class="content">
+      <view class="info section">
+        <view class="name sk-transparent sk-text-14-2857-812 sk-text">摩登兄弟刘宇宁 - 肆无忌燥 X 摩登兄弟刘宇宁</view>
+        <view class="time sk-transparent sk-text-14-2857-650 sk-text">53.1万次播放 · 2022-07-22</view>
+      </view>
+      <view class="recommend section sk-transparent sk-text-14-2857-484 sk-text">推荐视频：</view>
+      <view class="related-video section">
+        <view class="item">
+          <view class="imgBox">
+            <image class="img sk-image" mode="widthFix" style="height: 77.2461px;"></image>
+            <view class="desc">
+              <view class="count sk-transparent sk-text-14-2857-842 sk-text sk-pseudo sk-pseudo-circle">18.9万</view>
+            </view>
+          </view>
+          <view class="titleBox">
+            <view class="title sk-transparent sk-text-14-2857-246 sk-text">【王以纶X许晓诺】我与你的光年距离2||狠狠·夏夜夫妇·</view>
+            <view class="user sk-transparent sk-text-14-2857-891 sk-text">柠檬树上柠檬精</view>
+          </view>
+        </view>
+        <view class="item">
+          <view class="imgBox">
+            <image class="img sk-image" mode="widthFix" style="height: 78.75px;"></image>
+            <view class="desc">
+              <view class="count sk-transparent sk-text-14-2857-302 sk-text sk-pseudo sk-pseudo-circle">9.3万</view>
+            </view>
+          </view>
+          <view class="titleBox">
+            <view class="title sk-transparent sk-text-14-2857-176 sk-text">经典讽刺动画，奶奶竟变成了一颗橘子树？一切都源于父亲的贪婪</view>
+            <view class="user sk-transparent sk-text-14-2857-775 sk-text">仙贝爱好者</view>
+          </view>
+        </view>
+        <view class="item">
+          <view class="imgBox">
+            <image class="img sk-image" mode="widthFix" style="height: 78.6736px;"></image>
+            <view class="desc">
+              <view class="count sk-transparent sk-text-14-2857-406 sk-text sk-pseudo sk-pseudo-circle">66.8万</view>
+            </view>
+          </view>
+          <view class="titleBox">
+            <view class="title sk-transparent sk-text-14-2857-445 sk-text">[燃向MAD]家庭教师×阿纲觉醒</view>
+            <view class="user sk-transparent sk-text-14-2857-588 sk-text">猫叔老七</view>
+          </view>
+        </view>
+        <view class="item">
+          <view class="imgBox">
+            <image class="img sk-image" mode="widthFix" style="height: 78.75px;"></image>
+            <view class="desc">
+              <view class="count sk-transparent sk-text-14-2857-687 sk-text sk-pseudo sk-pseudo-circle">85.3万</view>
+            </view>
+          </view>
+          <view class="titleBox">
+            <view class="title sk-transparent sk-text-14-2857-508 sk-text">一条小团团OvO 自嗨模式</view>
+            <view class="user sk-transparent sk-text-14-2857-823 sk-text">音乐库分享</view>
+          </view>
+        </view>
+        <view class="item">
+          <view class="imgBox">
+            <image class="img sk-image" mode="widthFix" style="height: 78.75px;"></image>
+          </view>
+          <view class="titleBox"></view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</template>

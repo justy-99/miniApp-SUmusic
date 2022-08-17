@@ -1,5 +1,7 @@
 <!--pages/main-video/main-video.wxml-->
-<view class="video-list">
+<import src="main-video.skeleton.wxml"/>
+<template is="skeleton" wx:if="{{loading}}" />
+<view class="video-list" wx:if="{{!loading}}">
   <block wx:for="{{videoList}}" wx:key="id">
     <video-item 
       class="item" 

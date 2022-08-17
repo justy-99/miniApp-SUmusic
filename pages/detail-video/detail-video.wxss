@@ -1,17 +1,17 @@
 /* pages/detail-video/detail-video.wxss */
+@import "detail-video.skeleton.wxss";
 page {
   height: 100vh;
 }
 
 .video {
   width: 100%;
-  /* position: fixed;
-  top: 0;
-  left: 0; */
 }
-
+.sk-container .content {
+  margin-top: 208px;
+}
 .content {
-  height: calc(100% - 225px);
+  height: calc(100% - 230px);
 }
 
 .section {
@@ -47,17 +47,21 @@ page {
 }
 
 .related-video { 
-  padding-bottom: 4rpx;
+  padding-bottom: 20rpx;
 }
 
 .related-video .item {
-  margin: 30rpx 0;
+  margin-top: 30rpx;
   display: flex;
 }
 
 .related-video .item .imgBox {
   position: relative;
-  width: 240rpx;
+  width: 280rpx;
+  border-radius: 12rpx;
+  min-height: 158rpx;
+  max-height: 160rpx;
+  overflow: auto;
 }
 .related-video .imgBox .img{
   border-radius: 12rpx;
@@ -68,7 +72,7 @@ page {
   font-size: 24rpx;
   color: #fff;
   right: 10rpx;
-  bottom: 8rpx;
+  bottom: 12rpx;
 }
 .related-video .imgBox .count {
   position: relative;
@@ -77,7 +81,7 @@ page {
   content: "";
   position: absolute;
   left: -34rpx;
-  top: 4rpx;
+  top: 8rpx;
   width: 30rpx;
   height: 24rpx;
   background-size: cover;
