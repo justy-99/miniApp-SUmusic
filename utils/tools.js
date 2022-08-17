@@ -1,15 +1,17 @@
 // 节流
 export function _throttle(fn,interval) {
   let lastTime = 0
-  const _throttle = function(...args) {
-    const nowTime = Date.now()
-    let waitTime = interval - (nowTime - lastTime)
-    if(waitTime <= 0) {
-      fn.apply(this,args)
-      lastTime = nowTime
-    }
+  const throttle = function(...args) {
+    return new Promise((res, rej) => {
+      const nowTime = Date.now()
+      let waitTime = interval - (nowTime - lastTime)
+      if(waitTime <= 0) {
+        res(fn.apply(this,args))
+        lastTime = nowTime
+      }
+    })
   }
-  return _throttle
+  return throttle
 }
 
 // 防抖
@@ -17,7 +19,7 @@ export function _debounce(fn,delay,immediate = false) {
   let timer = null
   let isInvoke = true
 
-  const _debounce = function(...args){
+  const debounce = function(...args){
     if(timer) clearTimeout(timer)
 
     if(isInvoke&&immediate){
@@ -32,12 +34,12 @@ export function _debounce(fn,delay,immediate = false) {
     },delay)
   }
 
-  _debounce.cancel = ()=>{
+  debounce.cancel = ()=>{
     if(timer) clearTimeout(timer)
     timer = null
     isInvoke = true
   }
 
 
-  return _debounce
+  return debounce
 }

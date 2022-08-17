@@ -12,6 +12,7 @@
 }
 
 .album .image {
+  height: 196rpx;
   width: 100%;
 }
 

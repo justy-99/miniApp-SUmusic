@@ -7,3 +7,12 @@ page {
   padding: 0 24rpx;
   background-color: #fafafa;
 }
+
+/* 轮播图 */
+.banner {
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+.banner .banner-image {
+  width: 100%;
+}

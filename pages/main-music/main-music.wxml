@@ -1,7 +1,29 @@
 <!--pages/main-music/main-music.wxml-->
+<!-- 搜索框 -->
 <van-search
   shape="round"
   background="#fafafa"
   placeholder="搜索您喜欢的歌曲"
+  disabled
   bind:click-input="onSearchClick"
 />
+
+<!-- 轮播图 -->
+<swiper
+  class="banner"
+  circular
+  indicator-dots
+  wx:if="{{banners.length}}"
+  style="height:{{bannerHeight}}px"
+>
+  <block wx:for="{{banners}}" wx:key="targetId">
+    <swiper-item class="item">
+      <image
+        src="{{item.imageUrl}}"
+        mode="widthFix"
+        class="banner-image" 
+        bindload="onBannerImageLoad"
+      />
+    </swiper-item>
+  </block>
+</swiper>
