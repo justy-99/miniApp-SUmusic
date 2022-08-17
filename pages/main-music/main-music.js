@@ -12,7 +12,7 @@ Page({
    */
   data: {
     banners: [],
-    bannerHeight: 0,
+    bannerHeight: 130,
 
   },
 
@@ -36,11 +36,15 @@ Page({
       this.setData({ bannerHeight: res[0].height })
     })
   },
-
+  // 点击搜索框
   onSearchClick() {
     wx.navigateTo({
       url: '/pages/detail-search/detail-search',
     })
-  }
+  },
+  // 推荐歌曲点击更多
+  onRecommendMoreClick() {
+    console.log('eee')
+  },
   
 })
