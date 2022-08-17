@@ -2,6 +2,7 @@
 import { getMusicBanner } from '../../services/music'
 import { _throttle } from '../../utils/tools'
 import querySelect from '../../utils/query-select'
+// 节流处理
 const querySelectThrottle = _throttle(querySelect, 100)
 
 Page({
@@ -29,7 +30,7 @@ Page({
     this.setData({ banners: res.banners })
   },
 
-
+  // 动态计算图片高度后设置到swiper上
   onBannerImageLoad(event) {
     querySelectThrottle(".banner-image").then(res => {
       this.setData({ bannerHeight: res[0].height })
