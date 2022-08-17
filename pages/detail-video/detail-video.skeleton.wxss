@@ -12,7 +12,6 @@
     color: transparent !important;
   }
 .sk-text--Infinity-892 {
-    background-image: linear-gradient(transparent -Infinity%, #EEEEEE 0%, #EEEEEE NaN%, transparent 0%) !important;
     background-size: 100% 0.0000rpx;
     position: relative !important;
   }
