@@ -10,7 +10,7 @@ export function getMusicBanner(type = 0) {
 }
 
 export function getPlaylistDetail(id) {
-  return hyRequest.get({
+  return szyReqInstance.get({
     url: "/playlist/detail",
     data: {
       id
@@ -19,7 +19,7 @@ export function getPlaylistDetail(id) {
 }
 
 export function getSongMenuList(cat = "全部", limit = 6, offset = 0) {
-  return hyRequest.get({
+  return szyReqInstance.get({
     url: "/top/playlist",
     data: {
       cat,
@@ -30,7 +30,7 @@ export function getSongMenuList(cat = "全部", limit = 6, offset = 0) {
 }
 
 export function getSongMenuTag() {
-  return hyRequest.get({
+  return szyReqInstance.get({
     url: "/playlist/hot"
   })
 }

@@ -1,3 +1,5 @@
+import { baseURL } from "./config"
+
 // 封装成函数
 export function szyRequest(options) {
   return new Promise((resolve, reject) => {
@@ -45,4 +47,4 @@ class SZYRequest {
   }
 }
 
-export const szyReqInstance = new SZYRequest("http://codercba.com:9002")
+export const szyReqInstance = new SZYRequest(baseURL)
