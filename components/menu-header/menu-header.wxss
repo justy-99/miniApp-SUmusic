@@ -44,6 +44,7 @@
   height: 220rpx;
   flex: 1;
   margin-left: 50rpx;
+  overflow: hidden;
 }
 
 .info .title {
@@ -61,6 +62,8 @@
   bottom: 72rpx;
   display: flex;
   align-items: center;
+  width: 100%;
+  overflow: hidden;
 }
 
 .album .anthor .avatar {
@@ -72,6 +75,10 @@
 .album .anthor .nickname {
   font-size: 24rpx;
   margin-left: 18rpx;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .album .info .desc {
@@ -80,7 +87,6 @@
   left: 0;
   width: 100%;
   font-size: 24rpx;
-  display: inline-block;
   /* 显示两行 */
   white-space: normal;
   overflow: hidden;
