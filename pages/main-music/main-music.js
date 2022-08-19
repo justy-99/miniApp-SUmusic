@@ -1,5 +1,5 @@
 // pages/main-music/main-music.js
-import { getMusicBanner, getPlaylistDetail } from '../../services/music'
+import { getMusicBanner, getPlaylistDetail, getSongMenuList } from '../../services/music'
 import recommendStore from "../../store/recommendStore"
 import rankingStore, { rankingsMap } from "../../store/rankingStore"
 import { _throttle } from '../../utils/tools'
@@ -21,6 +21,7 @@ Page({
     // 歌单数据
     hotMenuList: [],
     recMenuList: [],
+
     // 巅峰榜数据
     isRankingData: false,
     rankingInfos: {}
@@ -32,6 +33,7 @@ Page({
    */
   onLoad() {
     this.fetchMusicBanner()
+    this.fetchSongMenuList()
     // this.fetchRecommendSongs()
     // 发起action
     recommendStore.dispatch("fetchRecommendSongsAction")
@@ -58,6 +60,14 @@ Page({
   //   const recommendSongs = res.playlist.tracks.slice(0, 6)
   //   this.setData({recommendSongs})
   // },
+  fetchSongMenuList() {
+    getSongMenuList().then(res => {
+      this.setData({ hotMenuList: res.playlists })
+    })
+    getSongMenuList("华语").then(res => {
+      this.setData({ recMenuList: res.playlists })
+    })
+  },
 
   // 动态计算图片高度后设置到swiper上
   onBannerImageLoad(event) {
