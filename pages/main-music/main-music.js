@@ -83,32 +83,36 @@ Page({
   },
   // 推荐歌曲点击更多
   onRecommendMoreClick() {
-    console.log('eee')
+    const id = 3778678
+      wx.navigateTo({
+        url: `/pages/detail-song/detail-song?type=recommend&id=${id}`,
+      })
   },
   
 
   // ====================== 从Store中获取数据 ======================
   handleRecommendSongs(value) {
+    // console.log("value",value)
     if (!value.tracks) return
     this.setData({ recommendSongs: value.tracks.slice(0, 6) })
   },
 
   handleNewRanking(value) {
-    console.log("新歌榜:", value);
+    // console.log("新歌榜:", value);
     if (!value.name) return
     this.setData({ isRankingData: true })
     const newRankingInfos = { ...this.data.rankingInfos, newRanking: value }
     this.setData({ rankingInfos: newRankingInfos })
   },
   handleOriginRanking(value) {
-    console.log("原创榜:", value);
+    // console.log("原创榜:", value);
     if (!value.name) return
     this.setData({ isRankingData: true })
     const newRankingInfos = { ...this.data.rankingInfos, originRanking: value }
     this.setData({ rankingInfos: newRankingInfos })
   },
   handleUpRanking(value) {
-    console.log("飙升榜:", value);
+    // console.log("飙升榜:", value);
     if (!value.name) return
     this.setData({ isRankingData: true })
     const newRankingInfos = { ...this.data.rankingInfos, upRanking: value }

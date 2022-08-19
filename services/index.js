@@ -29,10 +29,13 @@ class SZYRequest {
         ...options,
         url: this.baseURL + url,
         success: (res) => {
+          console.log('res',res)
           wx.hideLoading()
           resolve(res.data)
         },
         fail: (err) => {
+          console.log('err',err)
+
           wx.hideLoading()
           console.log("err:", err);
         }

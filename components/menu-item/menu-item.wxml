@@ -2,7 +2,7 @@
 <wxs src="/utils/format.wxs" module="fmt"></wxs>
 <view class="menu-item" bindtap="onMenuItemTap">
   <view class="top">
-    <image class="image" src="{{itemData.coverImgUrl}}" mode="widthFix"></image>
+    <image class="image" src="{{itemData.coverImgUrl}}" mode="aspectFill"></image>
     <view class="count">{{fmt.formatCount(itemData.playCount)}}</view>
   </view>
   <view class="bottom">
