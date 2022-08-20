@@ -17,9 +17,6 @@ page {
   width: 100%;
 }
 
-.recommend {
-  margin-top: 36rpx;
-}
 .recommend .header {
   margin-bottom: 16rpx;
 }

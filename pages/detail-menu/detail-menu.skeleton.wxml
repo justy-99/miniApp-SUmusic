@@ -1,0 +1,117 @@
+<!--
+此文件为开发者工具生成，生成时间: 2022/8/20下午3:08:18
+使用方法：
+在 D:\my-project\miniApp\SU-Music\pages\detail-menu\detail-menu.wxml 引入模板
+
+```
+<import src="detail-menu.skeleton.wxml"/>
+<template is="skeleton" wx:if="{{loading}}" />
+```
+
+在 D:\my-project\miniApp\SU-Music\pages\detail-menu\detail-menu.wxss 中引入样式
+```
+@import "./detail-menu.skeleton.wxss";
+```
+
+更多详细信息可以参考文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/skeleton.html
+-->
+<template name="skeleton">
+  <view class="sk-container">
+    <view class="all-menu">
+      <view class="cat">
+        <view is="components/area-header/area-header">
+          <view class="header header--header">
+            <view class="title header--title sk-transparent sk-text-14-2857-67 sk-text">华语</view>
+          </view>
+        </view>
+        <view class="list">
+          <view class="iten">
+            <view is="components/menu-item/menu-item">
+              <view class="menu-item item--menu-item">
+                <view class="top item--top">
+                  <image class="image item--image sk-image" mode="aspectFill"></image>
+                  <view class="count item--count sk-transparent sk-text-14-2857-300 sk-text">1548.4万</view>
+                </view>
+                <view class="bottom item--bottom sk-transparent sk-text-14-2857-871 sk-text">
+                  [阴天快乐] 如果情绪有天气 我陷在阴天里
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="iten">
+            <view is="components/menu-item/menu-item">
+              <view class="menu-item item--menu-item">
+                <view class="top item--top">
+                  <image class="image item--image sk-image" mode="aspectFill"></image>
+                  <view class="count item--count sk-transparent sk-text-14-2857-999 sk-text">10.7亿</view>
+                </view>
+                <view class="bottom item--bottom sk-transparent sk-text-14-2857-548 sk-text">
+                  [华语速爆新歌] 张信哲/薛之谦首度合作《你不是一个人》温暖上线
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="iten">
+            <view is="components/menu-item/menu-item">
+              <view class="menu-item item--menu-item">
+                <view class="top item--top">
+                  <image class="image item--image sk-image" mode="aspectFill"></image>
+                  <view class="count item--count sk-transparent sk-text-14-2857-662 sk-text">20.9万</view>
+                </view>
+                <view class="bottom item--bottom sk-transparent sk-text-14-2857-880 sk-text">
+                  [爱恋银河] 跨越星河来见你
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="iten">
+            <view is="components/menu-item/menu-item">
+              <view class="menu-item item--menu-item">
+                <view class="top item--top">
+                  <image class="image item--image sk-image" mode="aspectFill"></image>
+                  <view class="count item--count sk-transparent sk-text-14-2857-22 sk-text">1348.4万</view>
+                </view>
+                <view class="bottom item--bottom sk-transparent sk-text-14-2857-623 sk-text">
+                  [华语节奏布鲁斯] 情绪辗转反侧 雾气消散不开
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="iten">
+            <view is="components/menu-item/menu-item">
+              <view class="menu-item item--menu-item">
+                <view class="top item--top">
+                  <image class="image item--image sk-image" mode="aspectFill"></image>
+                  <view class="count item--count sk-transparent sk-text-14-2857-126 sk-text">22.3万</view>
+                </view>
+                <view class="bottom item--bottom sk-transparent sk-text-14-2857-649 sk-text">
+                  [快乐工作指南] 烦恼清空，快乐办公
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="iten">
+            <view is="components/menu-item/menu-item">
+              <view class="menu-item item--menu-item">
+                <view class="top item--top">
+                  <image class="image item--image sk-image" mode="aspectFill"></image>
+                  <view class="count item--count sk-transparent sk-text-14-2857-945 sk-text">367.0万</view>
+                </view>
+                <view class="bottom item--bottom sk-transparent sk-text-14-2857-321 sk-text">
+                  [浪漫因子] 可以邀请你和我一起去春天吗
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="cat">
+        <view is="components/area-header/area-header">
+          <view class="header header--header">
+            <view class="title header--title sk-transparent sk-text-14-2857-730 sk-text">流行</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

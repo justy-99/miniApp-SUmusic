@@ -6,7 +6,9 @@
 
 .top {
   position: relative;
-  height: 220rpx;
+  height: 210rpx;
+  overflow: hidden;
+  border-radius: 12rpx;
 }
 
 .top .image {

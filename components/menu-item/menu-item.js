@@ -13,5 +13,8 @@ Component({
         url: `/pages/detail-song/detail-song?type=menu&id=${id}`,
       })
     }
+  },
+  options: {
+    styleIsolation: 'apply-shared'
   }
 })

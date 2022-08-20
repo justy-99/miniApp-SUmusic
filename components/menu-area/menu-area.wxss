@@ -15,7 +15,7 @@
 }
 .list-box .item {
   flex-shrink: 0;
-  width: 220rpx;
+  width: 210rpx;
   margin-left: 24rpx;
 }
 

@@ -1,0 +1,21 @@
+/* pages/detail-menu/detail-menu.wxss */
+@import "./detail-menu.skeleton.wxss";
+page {
+  box-sizing: border-box;
+  padding: 0 20rpx;
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.list .iten {
+  width: 49%;
+  margin-bottom: 8rpx;
+}
+
+.list .top {
+  height: 348rpx;
+}
