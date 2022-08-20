@@ -14,5 +14,8 @@ Component({
     onMoreTap() {
       this.triggerEvent("moreclick")
     }
+  },
+  options: {
+    styleIsolation: 'apply-shared'
   }
 })

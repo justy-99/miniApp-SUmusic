@@ -116,6 +116,16 @@ Page({
       const newRankingInfos = { ...this.data.rankingInfos, [ranking]: value }
       this.setData({ rankingInfos: newRankingInfos })
       this.setData({ isRankingData: true })
+        
+      // 停止下拉刷新
+      wx.stopPullDownRefresh()
     }
+  },
+
+  onPullDownRefresh() {
+    this.fetchMusicBanner()
+    this.fetchSongMenuList()
+    recommendStore.dispatch("fetchRecommendSongsAction")
+    rankingStore.dispatch("fetchRankingDataAction")
   },
 })
