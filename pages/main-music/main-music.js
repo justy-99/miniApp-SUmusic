@@ -36,17 +36,16 @@ Page({
     this.fetchSongMenuList()
     // this.fetchRecommendSongs()
     // 发起action
-    recommendStore.dispatch("fetchRecommendSongsAction")
     recommendStore.onState("recommendSongInfo", this.handleRecommendSongs)
+    recommendStore.dispatch("fetchRecommendSongsAction")
 
-    rankingStore.onState("newRanking", this.handleNewRanking)
-    rankingStore.onState("originRanking", this.handleOriginRanking)
-    rankingStore.onState("upRanking", this.handleUpRanking)
+    // rankingStore.onState("upRanking", this.handleUpRanking)
+    // rankingStore.onState("newRanking", this.handleNewRanking)
+    // rankingStore.onState("originRanking", this.handleOriginRanking)
+    for (const key in rankingsMap) {
+      rankingStore.onState(key, this.getRankingHanlder(key))
+    }
     rankingStore.dispatch("fetchRankingDataAction")
-
-    // for (const key in rankingsMap) {
-    //   rankingStore.onState(key, this.getRankingHanlder(key))
-    // }
   },
 
   // 网络请求的方法封装
@@ -97,31 +96,33 @@ Page({
     this.setData({ recommendSongs: value.tracks.slice(0, 6) })
   },
 
-  handleNewRanking(value) {
-    // console.log("新歌榜:", value);
-    if (!value.name) return
-    this.setData({ isRankingData: true })
-    const newRankingInfos = { ...this.data.rankingInfos, newRanking: value }
-    this.setData({ rankingInfos: newRankingInfos })
-  },
-  handleOriginRanking(value) {
-    // console.log("原创榜:", value);
-    if (!value.name) return
-    this.setData({ isRankingData: true })
-    const newRankingInfos = { ...this.data.rankingInfos, originRanking: value }
-    this.setData({ rankingInfos: newRankingInfos })
-  },
-  handleUpRanking(value) {
-    // console.log("飙升榜:", value);
-    if (!value.name) return
-    this.setData({ isRankingData: true })
-    const newRankingInfos = { ...this.data.rankingInfos, upRanking: value }
-    this.setData({ rankingInfos: newRankingInfos })
-  },
-  // getRankingHanlder(ranking) {
-  //   return value => {
-  //     const newRankingInfos = { ...this.data.rankingInfos, [ranking]: value }
-  //     this.setData({ rankingInfos: newRankingInfos })
-  //   }
+  // handleNewRanking(value) {
+  //   // console.log("新歌榜:", value);
+  //   if (!value.name) return
+  //   this.setData({ isRankingData: true })
+  //   const newRankingInfos = { ...this.data.rankingInfos, newRanking: value }
+  //   this.setData({ rankingInfos: newRankingInfos })
   // },
+  // handleOriginRanking(value) {
+  //   // console.log("原创榜:", value);
+  //   if (!value.name) return
+  //   this.setData({ isRankingData: true })
+  //   const newRankingInfos = { ...this.data.rankingInfos, originRanking: value }
+  //   this.setData({ rankingInfos: newRankingInfos })
+  // },
+  // handleUpRanking(value) {
+  //   // console.log("飙升榜:", value);
+  //   if (!value.name) return
+  //   this.setData({ isRankingData: true })
+  //   const newRankingInfos = { ...this.data.rankingInfos, upRanking: value }
+  //   this.setData({ rankingInfos: newRankingInfos })
+  // },
+  getRankingHanlder(ranking) {
+    return value => {
+      if (!value.name) return
+      const newRankingInfos = { ...this.data.rankingInfos, [ranking]: value }
+      this.setData({ rankingInfos: newRankingInfos })
+      this.setData({ isRankingData: true })
+    }
+  },
 })

@@ -39,9 +39,14 @@ Page({
   },
 
   handleRanking(value) {
-    // if (this.data.type === "recommend") {
-    //   value.name = "推荐歌曲"
-    // }
+    console.log("value",value)
+    if(!value.tracks) {
+      recommendStore.dispatch('fetchRecommendSongsAction')
+      rankingStore.dispatch("fetchRankingDataAction")
+    }
+    if (this.data.type === "recommend") {
+      value.name = "推荐歌曲"
+    }
     this.setData({ songInfo: value })
     wx.setNavigationBarTitle({
       title: value.name,
