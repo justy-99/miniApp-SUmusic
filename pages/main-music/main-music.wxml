@@ -4,7 +4,8 @@
   shape="round"
   background="#fafafa"
   placeholder="搜索您喜欢的歌曲"
-  bind:click-input="onSearchClick"
+  disabled
+  bindtap="onSearchClick"
 />
 
 <!-- 轮播图 -->

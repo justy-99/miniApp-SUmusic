@@ -18,7 +18,7 @@
 }
 
 .content .list {
-  margin-top: 10rpx;
+  margin-top: 12rpx;
   font-size: 26rpx;
 }
 

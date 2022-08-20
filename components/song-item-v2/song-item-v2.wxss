@@ -7,8 +7,10 @@
 }
 
 .index {
-  font-size: 30rpx;
-  padding: 12rpx;
+  width: 64rpx;
+  font-size: 32rpx;
+  color: #666;
+  text-align: center;
 }
 
 .info {

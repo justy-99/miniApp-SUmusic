@@ -79,7 +79,7 @@ Page({
   onRecommendMoreClick() {
     const id = 3778678
       wx.navigateTo({
-        url: `/pages/detail-song/detail-song?type=recommend&id=${id}`,
+        url: `/pages/detail-song/detail-song?type=recommend`,
       })
   },
   

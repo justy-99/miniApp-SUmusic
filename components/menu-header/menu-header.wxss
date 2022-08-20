@@ -67,14 +67,14 @@
 }
 
 .album .anthor .avatar {
-  width: 50rpx;
-  height: 50rpx;
-  border-radius: 25rpx;
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: 50%;
 }
 
 .album .anthor .nickname {
   font-size: 24rpx;
-  margin-left: 18rpx;
+  margin-left: 12rpx;
 
   white-space: nowrap;
   overflow: hidden;
@@ -83,7 +83,7 @@
 
 .album .info .desc {
   position: absolute;
-  bottom: 0;
+  bottom: -2rpx;
   left: 0;
   width: 100%;
   font-size: 24rpx;
