@@ -43,7 +43,7 @@
   position: relative;
   height: 220rpx;
   flex: 1;
-  margin-left: 50rpx;
+  margin-left: 36rpx;
   overflow: hidden;
 }
 

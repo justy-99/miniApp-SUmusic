@@ -14,7 +14,7 @@
     </view>
   </view>
   <view class="album">
-    <image class="image" src="{{itemData.coverImgUrl}}"></image>
+    <image class="image" src="{{itemData.coverImgUrl}}" mode="aspectFill"></image>
     <view class="count">{{fmt.formatCount(itemData.playCount)}}</view>
   </view>
 </view>
