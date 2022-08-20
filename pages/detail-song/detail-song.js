@@ -44,9 +44,6 @@ Page({
       recommendStore.dispatch('fetchRecommendSongsAction')
       rankingStore.dispatch("fetchRankingDataAction")
     }
-    if (this.data.type === "recommend") {
-      value.name = "推荐歌曲"
-    }
     this.setData({ songInfo: value })
     wx.setNavigationBarTitle({
       title: value.name,

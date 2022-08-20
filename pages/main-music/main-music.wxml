@@ -4,7 +4,6 @@
   shape="round"
   background="#fafafa"
   placeholder="搜索您喜欢的歌曲"
-  disabled
   bind:click-input="onSearchClick"
 />
 
@@ -33,7 +32,7 @@
 
 <!-- 推荐歌曲（热歌榜）-->
 <view class="recommend" wx:if="{{recommendSongs.length}}">
-  <area-header title="推荐歌曲" bind:moreclick="onRecommendMoreClick"></area-header>
+  <area-header title="热门单曲" bind:moreclick="onRecommendMoreClick"></area-header>
   <view class="list">
     <block wx:for="{{recommendSongs}}" wx:key="id">
       <song-item-v1 itemData="{{item}}"/>
