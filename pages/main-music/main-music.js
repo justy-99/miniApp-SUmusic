@@ -53,12 +53,7 @@ Page({
     const res = await getMusicBanner()
     this.setData({ banners: res.banners })
   },
-
-  // async fetchRecommendSongs() {
-  //   const res = await getPlaylistDetail(3778678)
-  //   const recommendSongs = res.playlist.tracks.slice(0, 6)
-  //   this.setData({recommendSongs})
-  // },
+  // 请求歌单数据
   fetchSongMenuList() {
     getSongMenuList().then(res => {
       this.setData({ hotMenuList: res.playlists })
@@ -88,14 +83,12 @@ Page({
       })
   },
   
-
   // ====================== 从Store中获取数据 ======================
   handleRecommendSongs(value) {
     // console.log("value",value)
     if (!value.tracks) return
     this.setData({ recommendSongs: value.tracks.slice(0, 6) })
   },
-
   // handleNewRanking(value) {
   //   // console.log("新歌榜:", value);
   //   if (!value.name) return
