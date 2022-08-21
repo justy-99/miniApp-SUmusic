@@ -33,7 +33,7 @@ export function _debounce(fn, delay = 200, immediate = false) {
           isInvoke = false
           return
         }
-
+      
         timer = setTimeout(()=>{
           resolve(fn.apply(this,args))
           timer = null

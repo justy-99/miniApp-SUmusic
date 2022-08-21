@@ -2,6 +2,7 @@
 import { getMusicBanner, getPlaylistDetail, getSongMenuList } from '../../services/music'
 import recommendStore from "../../store/recommendStore"
 import rankingStore, { rankingsMap } from "../../store/rankingStore"
+import playerStore from "../../store/playerStore"
 import { _throttle } from '../../utils/tools'
 import querySelect from '../../utils/query-select'
 // 节流处理
@@ -82,11 +83,15 @@ Page({
         url: `/pages/detail-song/detail-song?type=recommend`,
       })
   },
-  
+  onSongItemTap(event) {
+    const index = event.currentTarget.dataset.index
+    playerStore.setState("playSongList", this.data.recommendSongs)
+    playerStore.setState("playSongIndex", index)
+  },
   // ====================== 从Store中获取数据 ======================
   handleRecommendSongs(value) {
     // console.log("value",value)
-    if (!value.tracks) return
+    if (!value.tracks) return false
     this.setData({ recommendSongs: value.tracks.slice(0, 6) })
   },
   // handleNewRanking(value) {

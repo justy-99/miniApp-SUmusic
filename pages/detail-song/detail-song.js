@@ -1,6 +1,7 @@
 // pages/detail-song/detail-song.js
 import recommendStore from "../../store/recommendStore"
 import rankingStore from "../../store/rankingStore"
+import playerStore from "../../store/playerStore"
 import { getPlaylistDetail } from "../../services/music"
 
 Page({
@@ -39,6 +40,14 @@ Page({
     this.setData({ songInfo: res.playlist })
   },
 
+  // ================== wxml事件监听 ==================
+  onSongItemTap(event) {
+    playerStore.setState("playSongList", this.data.songInfo.tracks)
+    const index = event.currentTarget.dataset.index
+    playerStore.setState("playSongIndex", index)
+  },
+
+  // ================== store共享数据 ==================
   handleRanking(value) {
     console.log("value",value)
     if(!value.tracks) {

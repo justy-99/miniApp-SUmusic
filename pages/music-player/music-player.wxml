@@ -31,7 +31,7 @@
     </view>
     <view class="info">
       <view class="name">{{currentSong.name}}</view>
-      <view class="singer">{{currentSong.ar[0].name}}</view>
+      <view class="singer">{{singer}}</view>
     </view>
     <view class="lyric">
       {{currentLyricText}}
@@ -73,5 +73,7 @@
       <image class="btn list" src="/assets/images/player/play_music.png"/>
     </view>
   </swiper-item>
-  <swiper-item >2</swiper-item>
+  <swiper-item >
+    歌词
+  </swiper-item>
 </swiper>

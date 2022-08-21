@@ -55,7 +55,6 @@
   animation-play-state: paused !important;
   -webkit-animation-play-state: paused !important;
 }
-
 @keyframes rotate {
   100% {
     transform: rotate(360deg);
@@ -69,12 +68,13 @@
 }
 
 .music .info .singer {
-  margin-top: 10rpx;
+  margin: 10rpx 0;
 }
 /* 当前歌词 */
 .music .lyric {
+  min-height: 38rpx;
   text-align: center;
-  margin: 16rpx 0;
+  margin: 32rpx 0 16rpx;
   padding: 0 16rpx;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -86,7 +86,7 @@
 }
 
 .music .progress .slider {
-  margin: 16rpx 8rpx 10rpx 18rpx;
+  margin: 16rpx 8rpx 10rpx;
 }
 
 .music .progress .time {

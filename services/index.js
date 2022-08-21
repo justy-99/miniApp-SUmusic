@@ -29,7 +29,7 @@ class SZYRequest {
         ...options,
         url: this.baseURL + url,
         success: (res) => {
-          console.log('res',res)
+          // console.log('res',res)
           wx.hideLoading()
           resolve(res.data)
         },
