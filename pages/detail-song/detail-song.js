@@ -25,7 +25,8 @@ Page({
       this.data.key = key
       rankingStore.onState(key, this.handleRanking)
     } else if (type === "recommend") {
-      recommendStore.onState("recommendSongInfo", this.handleRanking)
+      this.data.key = "recommendSongInfo"
+      recommendStore.onState(this.data.key, this.handleRanking)
     } else if (type === "menu") {
       const id = options.id
       this.data.id = id
@@ -54,7 +55,7 @@ Page({
     if (this.data.type === "ranking") {
       rankingStore.offState(this.data.key, this.handleRanking)
     } else if (this.data.type === "recommend") {
-      recommendStore.offState("recommendSongInfo", this.handleRanking)
+      recommendStore.offState(this.data.key, this.handleRanking)
     }
   }
 })

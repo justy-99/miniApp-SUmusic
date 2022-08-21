@@ -1,2 +1,5 @@
 /**app.wxss**/
-image{height:auto}
+image{
+  height:auto;
+  vertical-align: top;
+}

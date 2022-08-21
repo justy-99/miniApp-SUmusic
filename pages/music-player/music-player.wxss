@@ -1,0 +1,118 @@
+/* pages/music-player/music-player.wxss */
+.bg-image, .bg-cover{
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.bg-cover {
+  background-color: rgba(0,0,0,0.3);
+  backdrop-filter: blur(20px);
+}
+
+.tabs {
+  display: flex;
+  font-size: 30rpx;
+  color: #aaa;
+}
+
+.tabs .active {
+  color: #fff;
+}
+
+.tabs .divider {
+  margin: 0 8rpx;
+}
+
+/* 内容 */
+.music {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 40rpx 60rpx;
+  font-size: 28rpx;
+  color: #fff;
+}
+/* 专辑封面 */
+.music .album {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.album .image {
+  width: 400rpx;
+  height: 400rpx;
+  border-radius: 50%;
+  border: 66rpx solid #111;
+  box-shadow: 0 0 10rpx 5rpx rgba(255,255,255,0.5);
+  animation: rotate 30s infinite linear;
+}
+/* 停止旋转动画 */
+.toggle-rotate{
+  animation-play-state: paused !important;
+  -webkit-animation-play-state: paused !important;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+  }
+}
+/* 歌曲信息 */
+.music .info .name {
+  font-size: 48rpx;
+  font-weight: 700;
+}
+
+.music .info .singer {
+  margin-top: 10rpx;
+}
+/* 当前歌词 */
+.music .lyric {
+  text-align: center;
+  margin: 16rpx 0;
+  padding: 0 16rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* 滑动条 */
+.music .progress {
+  margin: 12rpx 0;
+}
+
+.music .progress .slider {
+  margin: 16rpx 8rpx 10rpx 18rpx;
+}
+
+.music .progress .time {
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+}
+/* 播放控制 */
+.music .controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12rpx 0;
+}
+
+.music .controls .btn {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.music .controls .btn.mode {
+  width: 80rpx;
+  height: 80rpx;
+} 
+
+.music .controls .btn.play {
+  width: 140rpx;
+  height: 140rpx;
+}
