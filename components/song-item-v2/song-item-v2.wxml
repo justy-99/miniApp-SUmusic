@@ -5,7 +5,7 @@
     <view class="name">{{itemData.name}}</view>
     <view class="source">
       <image  wx:if="{{itemData.sq}}" class="icon" src="/assets/images/icons/sq_icon.png"></image>
-      <text>{{itemData.ar[0].name}}</text>
+      <text class="singer">{{singer}}</text>
     </view>
   </view>
 </view>

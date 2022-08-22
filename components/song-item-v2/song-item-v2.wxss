@@ -32,10 +32,19 @@
   font-size: 24rpx;
   color: #666;
   margin-top: 8rpx;
+  width: 100%;
+
 }
 
 .source .icon {
+  flex-shrink: 0;
   width: 38rpx;
   height: 22rpx;
   margin-right: 10rpx;
+}
+
+.source .singer {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;  
 }

@@ -7,7 +7,7 @@ import { _throttle, _debounce } from '../../utils/tools'
 const App = getApp()
 
 // 创建播放器
-const audioContext = wx.createInnerAudioContext()
+let audioContext = wx.createInnerAudioContext()
 console.log('audioContext',audioContext)
 
 const modeNames = ["order", "repeat", "random"]
@@ -39,7 +39,7 @@ Page({
 
     lyricString: '',
     lyricInfos: [],
-    currentLyricText: '666',
+    currentLyricText: 'From: 苏music',
     currentLyricIndex: 0,
     lyricScrollTop: 1,
 
@@ -68,7 +68,7 @@ Page({
     // 1.记录当前的时间
     // 2.修改sliderValue
     const sliderValue = this.data.currentTime / this.data.durationTime * 100
-    this.setData({ 
+    this.setData({
       currentTime: audioContext.currentTime * 1000,
       sliderValue
     })
@@ -101,6 +101,8 @@ Page({
     })
     // 3.播放当前的歌曲
     audioContext.stop()
+    audioContext.destroy()
+    audioContext = wx.createInnerAudioContext()
     audioContext.src = `https://music.163.com/song/media/outer/url?id=${id}.mp3`
     audioContext.autoplay = true
     audioContext.play()
@@ -121,7 +123,7 @@ Page({
         let index = this.data.lyricInfos.length - 1
         for (let i = 0; i < this.data.lyricInfos.length; i++) {
           const info = this.data.lyricInfos[i]
-          if (info.time > audioContext.currentTime * 1000) {
+          if (info.time - 600 > audioContext.currentTime * 1000) {
             index = i - 1
             break
           }
@@ -130,7 +132,7 @@ Page({
   
         // 3.获取歌词的索引index和文本text
         // 4.改变歌词滚动页面的位置
-        const currentLyricText = this.data.lyricInfos[index]?.text
+        const currentLyricText = this.data.lyricInfos[index]?.text || ''
         this.setData({ 
           currentLyricText, 
           currentLyricIndex: index,
@@ -148,6 +150,7 @@ Page({
         // 如果是单曲循环, 不需要切换下一首歌
         if (audioContext.loop) return
 
+        console.log('onEnded')
         // 切换下一首歌曲
         this.changeNewSong()
       })
@@ -157,7 +160,17 @@ Page({
     // 1.获取之前的数据
     const length = this.data.playSongList.length
     let index = this.data.playSongIndex
-
+    audioContext.loop = false
+    if(!length) {
+      const currentTime = 0
+      audioContext.seek(currentTime / 1000)
+      this.setData({
+        currentTime,sliderValue: currentTime
+      })
+      return audioContext.loop = true
+    }
+    console.log('index',index)
+    console.log('length',length)
     // 2.根据之前的数据计算最新的索引
     switch (this.data.playModeIndex) {
       case 1: // 单曲循环 切换就走顺序播放的逻辑
@@ -170,11 +183,12 @@ Page({
         index = Math.floor(Math.random() * length)
         break
     }
-
     // 3.根据索引获取当前歌曲的信息
     const newSong = this.data.playSongList[index]
     // 将数据回到初始状态
-    this.setData({ currentSong: {}, sliderValue: 0, currentTime: 0, durationTime: 0, singer: ''})
+    audioContext.stop()
+    audioContext.seek(0)
+    this.setData({ currentSong: {}, sliderValue: 0, currentTime: 0, durationTime: 0, singer: '', isFirstPlay: true})
     // 开始播放新的歌曲
     this.setupPlaySong(newSong.id)
     // 4.保存最新的索引值

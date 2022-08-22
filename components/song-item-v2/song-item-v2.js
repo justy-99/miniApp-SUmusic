@@ -3,12 +3,20 @@ Component({
   properties: {
     itemData: {
       type: Object,
-      value: {}
+      value: {},
+      observer(val) {
+        let singers = []
+        singers = val.ar.map(item => item.name)
+        this.setData({singer:singers.join('、')})
+      }
     },
     index: {
       type: Number,
       value: -1
     }
+  },
+  data: {
+    singer :''
   },
   methods: {
     onSongItemTap() {

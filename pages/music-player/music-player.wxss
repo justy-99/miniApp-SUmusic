@@ -8,7 +8,7 @@
   z-index: -1;
 }
 .bg-cover {
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.6);
   backdrop-filter: blur(20px);
 }
 
@@ -37,9 +37,9 @@
 }
 /* 专辑封面 */
 .music .album {
-  flex: 1;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
 }
 
 .album .image {
@@ -62,19 +62,24 @@
   }
 }
 /* 歌曲信息 */
+.music .info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .music .info .name {
   font-size: 48rpx;
   font-weight: 700;
 }
-
 .music .info .singer {
-  margin: 10rpx 0;
+  margin: 10rpx 0 32rpx;
 }
 /* 当前歌词 */
 .music .lyric {
   min-height: 38rpx;
   text-align: center;
-  margin: 32rpx 0 16rpx;
+  margin: 16rpx 0;
   padding: 0 16rpx;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -115,4 +120,34 @@
 .music .controls .btn.play {
   width: 140rpx;
   height: 140rpx;
+}
+
+.lyric-list {
+  box-sizing: border-box;
+  height: 100%;
+  color: #aaa;
+  font-size: 28rpx;
+  text-align: center;
+  padding: 40rpx;
+}
+.lyric-list ::-webkit-scrollbar {
+  display: none;
+}
+.lyric-list .item {
+  height: 35px;
+  line-height: 35px;
+  
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  transition: all .2s linear;
+}
+
+.lyric-list .item.active {
+  white-space: normal;
+  color: #fff;
+  font-size: 40rpx;
+  height: auto;
+  margin: 20rpx 0;
 }
