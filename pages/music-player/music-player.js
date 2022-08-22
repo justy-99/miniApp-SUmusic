@@ -118,7 +118,7 @@ Page({
           throttleUpdateProgress()
         }
   
-        // // 2.匹配正确的歌词
+        // // 2.匹配正确的歌词 (往前进600ms)
         if (!this.data.lyricInfos.length) return
         let index = this.data.lyricInfos.length - 1
         for (let i = 0; i < this.data.lyricInfos.length; i++) {
