@@ -41,7 +41,7 @@ Page({
     lyricInfos: [],
     currentLyricText: 'From: 苏music',
     currentLyricIndex: 0,
-    lyricScrollTop: 1,
+    lyricScrollTop: 0,
 
     playModeIndex: 0, // 0:顺序播放 1:单曲循环 2:随机播放
     playModeName: "order",
