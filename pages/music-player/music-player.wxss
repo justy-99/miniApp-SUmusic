@@ -108,7 +108,7 @@
 }
 
 .music .progress .slider {
-  margin: 16rpx 8rpx 10rpx;
+  margin: 16rpx 8rpx 10rpx 14rpx;
 }
 
 .music .progress .time {
@@ -133,6 +133,7 @@
   width: 80rpx;
   height: 80rpx;
   margin-right: -20rpx;
+  margin-left: -10rpx;
 } 
 
 .music .controls .btn.play {

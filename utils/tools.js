@@ -1,14 +1,32 @@
 // 节流
-export function _throttle(fn, interval = 200) {
+export function _throttle(fn, interval = 200, { leading = true, trailing = false } = {}) {
   let lastTime = 0
+  
   const throttle = function(...args) {
     return new Promise((res, rej) => {
       try {
         const nowTime = Date.now()
+
+        // 对立即执行进行控制
+        if (!leading && lastTime === 0) {
+          lastTime = nowTime
+        }
+        // 2.计算需要等待的时间执行函数
         let waitTime = interval - (nowTime - lastTime)
         if(waitTime <= 0) {
           res(fn.apply(this,args))
           lastTime = nowTime
+        }
+
+        // 3.判断是否需要执行尾部
+        if (trailing && !timer) {
+          timer = setTimeout(() => {
+            // console.log("执行timer")
+            const res = fn.apply(this, args)
+            res(res)
+            lastTime = new Date().getTime()
+            timer = null
+          }, waitTime);
         }
       } catch (err) {
         rej(err)

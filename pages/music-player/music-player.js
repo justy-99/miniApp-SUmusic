@@ -110,10 +110,12 @@ Page({
     // 4.监听播放的进度
     if (this.data.isFirstPlay) {
       this.data.isFirstPlay = false
-      const throttleUpdateProgress = _throttle(this.updateProgress, 500)
+      const throttleUpdateProgress = _throttle(this.updateProgress, 500, { leading: false })
 
       audioContext.onTimeUpdate(() => {
         // 1.更新歌曲的进度
+        //  当我们在通过滑块拖动或者点击滑块改变歌曲进度时，虽然通过audioContext.seek()设置了audioContext的currentTime,
+        //  但是在改变完后马上去获取audioContext.currentTime依然可能会在原来的地方，大概500ms内，偶尔触发。需要通过字段限制先不要自动更新进度
         if (!this.data.isSliderChanging && !this.data.isWaiting) {
           throttleUpdateProgress()
         }
@@ -231,12 +233,15 @@ Page({
       this.setData({ isPlaying: true })
     }
   },
+  // 点击滑块后，改变iswaiting字段（使用防抖）
+  debounceWaiting: _debounce(function(){
+    console.log('isWaiting')
+    this.data.isWaiting = false
+  },1000),
   // 点击滑块变化或拖动结束
   onSliderChange(event) {
     this.data.isWaiting = true
-    setTimeout(() => {
-      this.data.isWaiting = false
-    }, 2000)
+    this.debounceWaiting()
     // 1.获取点击滑块位置对应的value
     const value = event.detail.value
 
