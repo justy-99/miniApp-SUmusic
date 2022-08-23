@@ -8,8 +8,8 @@
   z-index: -1;
 }
 .bg-cover {
-  background-color: rgba(0,0,0,0.6);
-  backdrop-filter: blur(20px);
+  background-color: rgba(0,0,0,0.5);
+  backdrop-filter: blur(25px);
 }
 
 .tabs {
@@ -32,23 +32,25 @@
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: 44rpx 60rpx;
+  padding: 0 60rpx 28rpx;
   font-size: 28rpx;
   color: #fff;
 }
 /* 专辑封面 */
 .music .album {
+  flex: 1;
+
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .album .image {
-  width: 400rpx;
-  height: 400rpx;
+  width: 420rpx;
+  height: 420rpx;
   border-radius: 50%;
   border: 66rpx solid #111;
-  box-shadow: 0 0 10rpx 5rpx rgba(255,255,255,0.5);
+  box-shadow: 0 0 10rpx 4rpx rgba(255,255,255,0.5);
   animation: rotate 30s infinite linear;
 }
 /* 停止旋转动画 */
@@ -64,11 +66,11 @@
 }
 /* 歌曲信息 */
 .music .info {
-  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
+  min-height: 140rpx;
 }
 .music .info .name {
   font-size: 44rpx;
@@ -130,6 +132,7 @@
 .music .controls .btn.mode {
   width: 80rpx;
   height: 80rpx;
+  margin-right: -20rpx;
 } 
 
 .music .controls .btn.play {
@@ -162,7 +165,7 @@
 .lyric-list .item.active {
   white-space: normal;
   color: #fff;
-  font-size: 40rpx;
+  font-size: 38rpx;
   height: auto;
-  margin: 20rpx 0;
+  margin: 16rpx 0;
 }

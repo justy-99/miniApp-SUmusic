@@ -93,7 +93,7 @@ Page({
     getSongLyric(id).then( res => {
       const lrcString = res.lrc.lyric
       const lyricInfos = parseLyric(lrcString)
-      this.setData({ lyricInfos })
+      this.setData({ lyricInfos, lyricScrollTop: 0 })
       setTimeout(() => {
         if (this.data.isPlaying)
           audioContext.play()
