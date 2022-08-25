@@ -27,7 +27,7 @@
 >
   <swiper-item class="music">
     <view class="album">
-      <image class="image {{isPlaying ? '' : 'toggle-rotate'}}" src="{{currentSong.al.picUrl}}" mode="aspectFill"></image>
+      <image class="image {{isPlaying ? '' : 'toggle-rotate'}}" src="{{currentSong.al.picUrl}}" mode="aspectFill" bindtap="showImg"></image>
     </view>
     <view class="info">
       <view class="name">{{currentSong.name}}</view>

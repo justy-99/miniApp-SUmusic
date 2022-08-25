@@ -166,7 +166,7 @@
 .lyric-list .item.active {
   white-space: normal;
   color: #fff;
-  font-size: 38rpx;
+  font-size: 36rpx;
   height: auto;
   margin: 16rpx 0;
 }
