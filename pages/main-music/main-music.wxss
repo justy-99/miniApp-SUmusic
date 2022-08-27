@@ -51,7 +51,7 @@ page {
   width: 90rpx;
   height: 90rpx;
   border-radius: 50%;
-  animation: rotate 30s infinite linear;
+  animation: rotate 25s infinite linear;
 }
 
 /* 停止旋转动画 */
