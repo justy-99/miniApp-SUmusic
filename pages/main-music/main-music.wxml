@@ -63,8 +63,7 @@
     <view class="name">{{currentSong.name}}</view>
   </view>
   <view class="right">
-    <image class="play" src="/assets/images/music/play_icon.png" wx:if="{{!isPlaying}}" mode="widthFix" bindtap="onPlayBtnTab"></image>
-    <image class="play" src="/assets/images/music/pause_icon.png" wx:if="{{isPlaying}}" mode="widthFix" bindtap="onPlayBtnTab"></image>
+    <image class="play" src="/assets/images/music/{{ !isPlaying ? 'play' : 'pause'}}_icon.png" mode="widthFix" bindtap="onPlayBtnTab"></image>
     <image class="playList" src="/assets/images/music/playlist_icon.png" mode="widthFix"></image>
   </view>
   </view>
