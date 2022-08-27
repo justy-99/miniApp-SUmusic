@@ -1,5 +1,6 @@
 // pages/detail-video/detail-video.js
 import { getMVUrl, getMVInfo, getMVRelated } from "../../services/video"
+import playerStore from "../../store/playerStore"
 
 Page({
   data: {
@@ -24,6 +25,8 @@ Page({
     this.fetchMVUrl()
     this.fetchMVInfo()
     this.fetchMVRelated()
+
+    if(playerStore.state.isPlaying)  playerStore.dispatch('changeMusicStatusAction')
   },
 
   async fetchMVUrl() {
@@ -38,5 +41,6 @@ Page({
     const res = await getMVRelated(this.data.id)
     this.setData({ relatedVideo: res.data })
     this.setData({loading:false})
-  }
+  },
+
 })

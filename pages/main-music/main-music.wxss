@@ -20,3 +20,71 @@ page {
 .recommend .header {
   margin-bottom: 16rpx;
 }
+
+/* 播放状态栏 */
+.bg-car {
+  position: fixed;
+  bottom: 0;
+  background-color: #fff;
+  width: 100%;
+  margin-left: -24rpx;
+  height: 90rpx;
+}
+.play-bar{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.play-bar .left,.right{
+  align-items: center;
+  display: flex;
+  overflow: hidden;
+}
+
+.play-bar .left .album {
+  position: absolute;
+  left: 14rpx;
+  bottom: 14rpx;
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  animation: rotate 30s infinite linear;
+}
+
+/* 停止旋转动画 */
+.toggle-rotate{
+  animation-play-state: paused !important;
+  -webkit-animation-play-state: paused !important;
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+.play-bar .left .name{
+  font-weight: bold;
+  font-size: 30rpx;
+  margin-left: 124rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.play-bar .right {
+  flex-shrink: 0;
+  width: 180rpx;
+  justify-content: flex-end;
+  padding-right: 24rpx;
+}
+.play-bar .right .play,.playList {
+  width: 52rpx;
+  margin-left: 20rpx;
+}
+
+.play-bar .right .playList {
+  width: 60rpx;
+}

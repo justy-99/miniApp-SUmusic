@@ -82,7 +82,7 @@
     >
       <block wx:for="{{lyricInfos}}" wx:key="index">
         <view 
-          class="item {{index === currentLyricIndex ? 'active' : ''}}"
+          class="item {{(index === currentLyricIndex) && item.text.length ? 'active' : ''}}"
           style="padding-top: {{index === 0 ? (contentHeight/2 - 100) : 0}}px; padding-bottom:{{index === lyricInfos.length-1 ? (contentHeight/2 + 66) : 0}}px; " 
         >
           {{ item.text }}

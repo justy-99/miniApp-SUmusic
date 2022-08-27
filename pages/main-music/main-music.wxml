@@ -53,3 +53,19 @@
     </block>
   </view>
 </view>
+
+<!-- 播放工具栏 -->
+<view style="height: 90rpx;"  wx:if="{{currentSong.name || isPlaying}}"></view>
+<view class="bg-car" wx:if="{{currentSong.name || isPlaying}}">
+  <view class="play-bar" >
+  <view class="left" bindtap="onPlayBarTab">
+    <image class="album {{isPlaying ? '' : 'toggle-rotate'}}" src="{{currentSong.al.picUrl}}"></image>
+    <view class="name">{{currentSong.name}}</view>
+  </view>
+  <view class="right">
+    <image class="play" src="/assets/images/music/play_icon.png" wx:if="{{!isPlaying}}" mode="widthFix" bindtap="onPlayBtnTab"></image>
+    <image class="play" src="/assets/images/music/pause_icon.png" wx:if="{{isPlaying}}" mode="widthFix" bindtap="onPlayBtnTab"></image>
+    <image class="playList" src="/assets/images/music/playlist_icon.png" mode="widthFix"></image>
+  </view>
+  </view>
+</view>

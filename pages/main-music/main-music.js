@@ -25,8 +25,11 @@ Page({
 
     // 巅峰榜数据
     isRankingData: false,
-    rankingInfos: {}
+    rankingInfos: {},
 
+    // 正在播放的数据
+    currentSong: {},
+    isPlaying: false,
   },
 
   /**
@@ -40,13 +43,12 @@ Page({
     recommendStore.onState("recommendSongInfo", this.handleRecommendSongs)
     recommendStore.dispatch("fetchRecommendSongsAction")
 
-    // rankingStore.onState("upRanking", this.handleUpRanking)
-    // rankingStore.onState("newRanking", this.handleNewRanking)
-    // rankingStore.onState("originRanking", this.handleOriginRanking)
     for (const key in rankingsMap) {
       rankingStore.onState(key, this.getRankingHanlder(key))
     }
     rankingStore.dispatch("fetchRankingDataAction")
+
+    playerStore.onStates(["currentSong", "isPlaying"], this.handlePlayInfos)
   },
 
   // 网络请求的方法封装
@@ -88,9 +90,16 @@ Page({
     playerStore.setState("playSongList", this.data.recommendSongs)
     playerStore.setState("playSongIndex", index)
   },
+  onPlayBarTab() {
+    wx.navigateTo({
+      url: '/pages/music-player/music-player',
+    })
+  },
+  onPlayBtnTab() {
+    playerStore.dispatch('changeMusicStatusAction')
+  },
   // ====================== 从Store中获取数据 ======================
   handleRecommendSongs(value) {
-    // console.log("value",value)
     if (!value.tracks) return false
     this.setData({ recommendSongs: value.tracks.slice(0, 6) })
   },
@@ -127,10 +136,26 @@ Page({
     }
   },
 
+  handlePlayInfos({ currentSong, isPlaying }) {
+    if (currentSong) {
+      this.setData({ currentSong })
+    }
+    if (isPlaying !== undefined) {
+      this.setData({ isPlaying })
+    }
+  },
+
   onPullDownRefresh() {
     this.fetchMusicBanner()
     this.fetchSongMenuList()
     recommendStore.dispatch("fetchRecommendSongsAction")
     rankingStore.dispatch("fetchRankingDataAction")
   },
+
+  onUnload() {
+    recommendStore.offState("recommendSongs", this.handleRecommendSongs)
+    rankingStore.offStates(["newRanking","originRanking","upRanking"], this.getRankingHanlder)
+    
+    playerStore.offStates(["currentSong", "isPlaying"], this.handlePlayInfos)
+  }
 })
