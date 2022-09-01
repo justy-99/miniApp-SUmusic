@@ -50,5 +50,6 @@
 }
 
 .more-icon {
-  padding-right: 20rpx;
+  padding: 20rpx;
+  font-size: 36rpx;
 }
