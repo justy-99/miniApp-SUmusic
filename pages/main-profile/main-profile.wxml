@@ -1,0 +1,16 @@
+<!--pages/main-profile/main-profile.wxml-->
+<!-- 1.头像和名称 -->
+<view class="section userinfo" bindtap="onUserInfoTap">
+  <image class="avatar" src="{{isLogin ? userInfo.avatarUrl: '/assets/images/profile/avatar_placeholder.png'}}"></image>
+  <view class="nickname">{{isLogin ? userInfo.nickName: '未登录'}}</view>
+</view>
+
+<!-- 2.tabs的选项 -->
+<view class="section tabs">
+  <block wx:for="{{tabs}}" wx:key="name">
+    <view class="item" bindtap="onTabItemClick" data-item="{{item}}">
+      <image class="icon" src="/assets/images/profile/{{item.type}}.png"/>
+      <view class="name">{{item.name}}</view>
+    </view>
+  </block>
+</view>

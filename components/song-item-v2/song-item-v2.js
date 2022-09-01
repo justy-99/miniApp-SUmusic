@@ -24,6 +24,18 @@ Component({
       wx.navigateTo({
         url: `/pages/music-player/music-player?id=${id}`,
       })
-    }
+    },
+
+    onMoreIconTap() {
+      // 弹出actionSheet
+      wx.showActionSheet({
+        itemList: ["收藏", "喜欢", "添加到歌单"],
+        success: (res) => {
+          const index = res.tapIndex
+          // this.handleOperationResult(index)
+        }
+      })
+    },
+    
   }
 })

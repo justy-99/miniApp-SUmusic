@@ -55,6 +55,7 @@ Page({
       rankingStore.dispatch("fetchRankingDataAction")
     }
     this.setData({ songInfo: value })
+    if(value.name)
     wx.setNavigationBarTitle({
       title: value.name,
     })

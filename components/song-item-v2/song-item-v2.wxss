@@ -48,3 +48,7 @@
   overflow: hidden;
   text-overflow: ellipsis;  
 }
+
+.more-icon {
+  padding-right: 20rpx;
+}

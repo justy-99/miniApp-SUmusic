@@ -8,4 +8,5 @@
       <text class="singer">{{singer}}</text>
     </view>
   </view>
+  <van-icon class="more-icon" name="more-o" catchtap="onMoreIconTap" />
 </view>
