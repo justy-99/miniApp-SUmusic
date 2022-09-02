@@ -69,7 +69,7 @@ Component({
         wx.showToast({ title: `${title}成功~`})
       }
     },
-    
+    // 歌单数据由父组件获取后传入，fetchMenuListAction事件可以组件内发送
     async handleMenuIndex(index) {
       // 1.获取要添加进去的歌单
       const menuItem = this.properties.menuList[index]

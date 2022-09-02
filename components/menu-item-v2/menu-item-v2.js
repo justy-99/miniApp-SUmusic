@@ -22,6 +22,13 @@ Component({
         wx.showToast({ title: "删除歌单成功~" })
         menuStore.dispatch("fetchMenuListAction")
       }
+    },
+
+    onMenuTap() {
+      const item = this.properties.itemData
+      wx.navigateTo({
+        url: `/pages/detail-song/detail-song?type=mineMenu&id=${item._id}&title=${item.name}`,
+      })
     }
   }
 })

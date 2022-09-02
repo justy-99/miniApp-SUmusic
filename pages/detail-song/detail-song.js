@@ -4,6 +4,7 @@ import rankingStore from "../../store/rankingStore"
 import playerStore from "../../store/playerStore"
 import menuStore from "../../store/menuStore"
 import { getPlaylistDetail } from "../../services/music"
+import { menuCollection } from "../../database/index"
 
 const db = wx.cloud.database()
 
@@ -40,6 +41,9 @@ Page({
       const tabname = options.tabname
       const title = options.title
       this.handleProfileTabInfo(tabname, title)
+    } else if (type === 'mineMenu') {
+      const id = options.id
+      this.handleMineMenuInfo(id)
     }
     
     // 歌单数据
@@ -66,6 +70,15 @@ Page({
     })
   },
 
+  async handleMineMenuInfo(id) {
+    const res = await menuCollection.query(0, 20, id, true)
+    this.setData({
+      songInfo: {
+        name: res.data.name,
+        tracks: res.data.songList
+      }
+    })
+  },
 
   // ================== wxml事件监听 ==================
   onSongItemTap(event) {
