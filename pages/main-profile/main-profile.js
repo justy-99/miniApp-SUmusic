@@ -61,6 +61,10 @@ Page({
   onPlusTap() {
     this.setData({ isShowDialog: true })
   },
+  // 微信小程序不监听会报警告。。。。
+  onInputChange() {
+
+  },
 
   async onConfirmTap() {
     // 1.获取歌单的名称
