@@ -15,7 +15,7 @@ const menuStore = new HYEventStore({
     }
   }
 })
-
+// 用户不一定在哪个页面进入，加载文件直接发送请求
 menuStore.dispatch("fetchMenuListAction")
 
 export default menuStore
