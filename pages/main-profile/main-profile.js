@@ -43,4 +43,13 @@ Page({
     // 4.profile中的数据修改
     this.setData({ isLogin: true, userInfo: profile.userInfo })
   },
+
+  onTabItemClick(event) {
+    const item = event.currentTarget.dataset.item
+    
+    wx.navigateTo({
+      url: `/pages/detail-song/detail-song?type=profile&tabname=${item.type}&title=${item.name}`,
+    })
+  },
+
 })

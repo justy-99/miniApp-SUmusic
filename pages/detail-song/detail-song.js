@@ -2,7 +2,10 @@
 import recommendStore from "../../store/recommendStore"
 import rankingStore from "../../store/rankingStore"
 import playerStore from "../../store/playerStore"
+import menuStore from "../../store/menuStore"
 import { getPlaylistDetail } from "../../services/music"
+
+const db = wx.cloud.database()
 
 Page({
   data: {
@@ -10,7 +13,8 @@ Page({
     key: "newRanking",
     id: "",
 
-    songInfo: {}
+    songInfo: {},
+    menuList: []
   },
   onLoad(options) {
     // 1.确定获取数据的类型
@@ -32,13 +36,36 @@ Page({
       const id = options.id
       this.data.id = id
       this.fetchMenuSongInfo()
+    } else if (type === "profile") { // 个人中心的tab
+      const tabname = options.tabname
+      const title = options.title
+      this.handleProfileTabInfo(tabname, title)
     }
+    
+    // 歌单数据
+    menuStore.onState("menuList", this.handleMenuList)
   },
 
   async fetchMenuSongInfo() {
     const res = await getPlaylistDetail(this.data.id)
     this.setData({ songInfo: res.playlist })
   },
+
+  
+  async handleProfileTabInfo(tabname, title) {
+    // 1.动态获取集合
+    const collection = db.collection(`c_${tabname}`)
+
+    // 2.获取数据的结果
+    const res = await collection.get()
+    this.setData({
+      songInfo: {
+        name: title,
+        tracks: res.data
+      }
+    })
+  },
+
 
   // ================== wxml事件监听 ==================
   onSongItemTap(event) {
@@ -59,6 +86,10 @@ Page({
     wx.setNavigationBarTitle({
       title: value.name,
     })
+  },
+
+  handleMenuList(value) {
+    this.setData({ menuList: value })
   },
 
   onUnload() {

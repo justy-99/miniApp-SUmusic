@@ -15,6 +15,10 @@ Component({
     index: {
       type: Number,
       value: -1
+    },
+    menuList: {
+      type: Array,
+      value: []
     }
   },
   data: {
@@ -65,5 +69,19 @@ Component({
       }
     },
     
+    async handleMenuIndex(index) {
+      // 1.获取要添加进去的歌单
+      const menuItem = this.properties.menuList[index]
+
+      // 2.向menuItem歌单中songList中添加一条数据
+      const data = this.properties.itemData
+      const cmd = db.command
+      const res = await menuCollection.update(menuItem._id, {
+        songList: cmd.push(data)
+      })
+      if (res) {
+        wx.showToast({ title: '将歌曲添加到歌单成功~' })
+      }
+    }
   }
 })

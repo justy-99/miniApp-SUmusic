@@ -8,6 +8,7 @@
     <song-item-v2 
       itemData="{{item}}" 
       index="{{index+1}}" 
+      menuList="{{menuList}}"
       bindtap="onSongItemTap" 
       data-index="{{index}}"
     />
