@@ -1,4 +1,6 @@
 // components/song-item-v2/song-item-v2.js
+import { favorCollection, likeCollection, menuCollection, db } from "../../database/index"
+
 Component({
   properties: {
     itemData: {
@@ -32,9 +34,35 @@ Component({
         itemList: ["收藏", "喜欢", "添加到歌单"],
         success: (res) => {
           const index = res.tapIndex
-          // this.handleOperationResult(index)
+          this.handleOperationResult(index)
         }
       })
+    },
+
+    async handleOperationResult(index) {
+      let res = null
+      switch(index) {
+        case 0: // 收藏
+          res = await favorCollection.add(this.properties.itemData)
+          break
+        case 1:
+          res = await likeCollection.add(this.properties.itemData)
+          break // 喜欢
+        case 2:
+          const menuNames = this.properties.menuList.map(item => item.name)
+          wx.showActionSheet({
+            itemList: menuNames,
+            success: (res) => {
+              const menuIndex = res.tapIndex
+              this.handleMenuIndex(menuIndex)
+            }
+          })
+          return
+      }
+      if (res) {
+        const title = index === 0 ? '收藏': '喜欢'
+        wx.showToast({ title: `${title}成功~`})
+      }
     },
     
   }
