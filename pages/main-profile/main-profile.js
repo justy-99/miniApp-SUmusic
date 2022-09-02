@@ -1,4 +1,7 @@
 // pages/main-profile/main-profile.js
+import { menuCollection } from "../../database/index"
+import menuStore from "../../store/menuStore"
+
 Page({
 
   data: {
@@ -23,6 +26,9 @@ Page({
     if (this.data.isLogin) {
       this.setData({ userInfo })
     }
+    
+    // 2.共享歌单数据
+    menuStore.onState("menuList", this.handleMenuList)
   },
   // ================ 事件监听 ==================
   async onUserInfoTap() {
@@ -52,4 +58,34 @@ Page({
     })
   },
 
+  onPlusTap() {
+    this.setData({ isShowDialog: true })
+  },
+
+  async onConfirmTap() {
+    // 1.获取歌单的名称
+    const menuName = this.data.menuName
+
+    // 2.模拟歌单数据
+    const menuRecord = {
+      name: menuName,
+      songList: []
+    }
+
+    // 3.将歌单记录添加数据库中
+    const res = await menuCollection.add(menuRecord)
+    if (res) {
+      wx.showToast({ title: "添加歌单成功~" })
+      menuStore.dispatch("fetchMenuListAction")
+    }
+  },
+  
+  // ================ 数据库 ==================
+  handleMenuList(value) {
+    this.setData({ menuList: value })
+  },
+
+  onUnload() {
+    menuStore.offState("menuList", this.handleMenuList)
+  }
 })

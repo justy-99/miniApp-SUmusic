@@ -2,6 +2,9 @@ import { HYEventStore } from 'hy-event-store'
 import { parseLyric } from '../utils/parse-lyric'
 
 import { getSongDetail, getSongLyric } from "../services/player"
+
+import { historyCollection } from "../database/index"
+
 // 创建播放器
 export let audioContext = wx.createInnerAudioContext()
 
@@ -45,6 +48,7 @@ const playerStore = new HYEventStore({
         const currentSong = res.songs[0]
         ctx.currentSong = currentSong
         ctx.durationTime = currentSong.dt
+        historyCollection.add(ctx.currentSong)
       })
       // 2.2.根据id获取歌词的信息
       getSongLyric(id).then( res => {

@@ -1,5 +1,6 @@
 // components/song-item-v2/song-item-v2.js
 import { favorCollection, likeCollection, menuCollection, db } from "../../database/index"
+import menuStore from "../../store/menuStore"
 
 Component({
   properties: {
@@ -80,6 +81,7 @@ Component({
         songList: cmd.push(data)
       })
       if (res) {
+        menuStore.dispatch("fetchMenuListAction")
         wx.showToast({ title: '将歌曲添加到歌单成功~' })
       }
     }
